@@ -1,0 +1,28 @@
+<p>listado de Heroes</p>
+
+<!-- este es como un if todo el div donde se esta ejecutando el if se 
+afecta
+si el heroe borrado es diferente a un strig vacio, entonces se va mostrar
+el texto heroe borrado
+esta es una manera de aplicar la consion: heroDelete !== '' 
+-->
+<div *ngIf=" heroDelete; else noBorrado " >   
+    <h2> Heroe borrado <small> {{ heroDelete }} </small> </h2>
+</div>
+
+<!--
+    referencias locales
+     este template se mostrara basado en la condicion *ngIf 
+-->
+<ng-template #noBorrado>   
+    <h2> No ha borrado nada </h2>
+</ng-template>
+
+
+<button (click)="borrarHeroe()" >Borrar</button>
+
+<!-- *ngFor esata directiva es para recorrer un array -->
+<ul>
+    <li *ngFor=" let heroe of heroes; let i = index" > {{i + 1}} - {{heroe}} </li>
+</ul>
+
